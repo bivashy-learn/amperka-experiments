@@ -1,0 +1,3 @@
+[submodule "usb_lamp/ArduinoToggleGUI"]
+	path = usb_lamp/ArduinoToggleGUI
+	url = https://github.com/bivashy-learn/ArduinoToggleGUI
