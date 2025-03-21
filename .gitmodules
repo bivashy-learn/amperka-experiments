@@ -1,3 +1,4 @@
-[submodule "usb_lamp/ArduinoToggleGUI"]
-	path = usb_lamp/ArduinoToggleGUI
-	url = https://github.com/bivashy-learn/ArduinoToggleGUI
+
+[submodule "usb_lamp/ArduinoToggler"]
+	path = usb_lamp/ArduinoToggler
+	url = https://github.com/bivashy-learn/ArduinoToggler
