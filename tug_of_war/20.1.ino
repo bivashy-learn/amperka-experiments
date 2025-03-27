@@ -1,0 +1,47 @@
+
+
+#include <Servo.h>
+
+#define BUZZER_PIN 0
+#define FIRST_BAR_PIN 4
+#define BAR_COUNT 10
+#define MAX_SCORE 20
+
+volatile int score = 0;
+
+Servo myServo;
+
+void setup() {
+  myServo.attach(4);
+
+  pinMode(BUZZER_PIN, OUTPUT);
+
+  attachInterrupt(INT1, pushP1, FALLING); // INT1 — 3 pin
+  attachInterrupt(INT0, pushP2, FALLING); // INT0 — 2 pin
+}
+
+void pushP1() {
+  ++score;
+}
+
+void pushP2() {
+  --score;
+}
+
+void loop() {
+  tone(BUZZER_PIN, 2000, 1000);
+
+  while (abs(score) < MAX_SCORE) {
+    int bound = map(score, -MAX_SCORE, MAX_SCORE, 0, 180);
+
+    int servoPosition = constrain(bound, 0, 180);
+
+    myServo.write(servoPosition);
+
+    delay(15);
+  }
+
+  tone(BUZZER_PIN, 4000, 1000);
+  while (true) {}
+}
+
